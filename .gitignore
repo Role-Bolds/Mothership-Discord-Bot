@@ -1,0 +1,23 @@
+.vagrant
+npm-debug.log
+node_modules/
+out/
+
+# .idea
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+
+# Ignore all .envs unless they start with sample-
+*.env
+!*-example.env
+
+# Ignore logs
+*.log
+
+# Ignore various secrets
+*.pem
+*.ovpn
+
+.nyc_output
+coverage
