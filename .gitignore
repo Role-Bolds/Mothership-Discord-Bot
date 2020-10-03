@@ -1,7 +1,7 @@
 .vagrant
 npm-debug.log
 node_modules/
-out/
+msb-compile/
 
 # .idea
 *.iws

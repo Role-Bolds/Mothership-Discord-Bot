@@ -1,8 +1,9 @@
 import Discord = require('discord.js');
 import { MothershipChar } from './lib/mothershipCharacterGenerator';
-import { prefix, token } from './lib/config.json';
+import { Config } from './lib/config';
 import { characterEmbedGen } from './lib/characterEmbedGen';
 const client = new Discord.Client();
+const config = new Config();
 
 const DEBUG = true;
 function debug(m){
@@ -16,7 +17,7 @@ client.once('ready', () => {
 });
 
 client.on('message', async message => {
-    if (message.content === `${prefix} gen`){
+    if (message.content === `${config.Prefix} gen`){
         try {
             const mschar = new MothershipChar();
             const mothershipCharEmbed = characterEmbedGen(mschar, message.author);
@@ -29,4 +30,4 @@ client.on('message', async message => {
     }
 });
 
-client.login(token);
+client.login(config.Token);
