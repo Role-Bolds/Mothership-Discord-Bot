@@ -7,12 +7,12 @@
         {
             "type": "node",
             "name": "Launch Discord.js",
-            "program": "${workspaceFolder}/src/discordjs.ts",
+            "program": "${workspaceFolder}/src/main.ts",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "outputCapture": "std",
+            //"outputCapture": "std",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/msb-compile/**/*.js"
