@@ -6,7 +6,7 @@
     "configurations": [
         {
             "type": "node",
-            "name": "Launch Discord.js",
+            "name": "Launch The Mothership",
             "program": "${workspaceFolder}/src/main.ts",
             "request": "launch",
             "skipFiles": [

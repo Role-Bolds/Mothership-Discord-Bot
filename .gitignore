@@ -1,12 +1,9 @@
 .vagrant
 node_modules/
 msb-compile/
-
 config.json
-
 # Ignore all logs
 *.log
-
 .nyc_output
 coverage
 package-lock.json
