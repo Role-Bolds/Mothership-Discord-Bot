@@ -19,7 +19,7 @@ import { Loadouts } from "./lists/loadouts";
 import { Nightmares } from "./lists/nightmares";
 import { Patches } from "./lists/patches";
 
-export class MothershipChar {
+export class MothershipCharacter {
   MothershipClass: string;
   FirstName: string;
   LastName: string;

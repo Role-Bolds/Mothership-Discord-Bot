@@ -7,13 +7,12 @@
         {
             "type": "node",
             "name": "Launch Discord.js",
-            "program": "${workspaceFolder}/discordjs.ts",
+            "program": "${workspaceFolder}/src/discordjs.ts",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "outputCapture": "std",
-            "envFile": "${workspaceFolder}/secrets/vscode.env",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/msb-compile/**/*.js"

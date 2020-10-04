@@ -1,8 +1,8 @@
-import { MothershipChar } from "./mothershipCharacterGenerator";
+import { MothershipCharacter } from "./mothershipCharacterGenerator";
 import { green } from "color-name";
 import { User } from "discord.js";
 
-export function characterEmbedGen(mschar: MothershipChar, user: User) {
+export function characterEmbedGen(mschar: MothershipCharacter, user: User) {
   return {
     color: green,
     title: `${mschar.MothershipClass} | ${mschar.FirstName} ${mschar.LastName}`,
