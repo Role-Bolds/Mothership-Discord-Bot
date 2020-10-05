@@ -1,130 +1,229 @@
-const Trained = [
+const Trained: {name: string, description: string, prerequisite: string[]}[] = [
     {
         name: 'Linguistics',
-        description: ''
+        description: '',
+        prerequisite: ['Sophontology']
     },
     {
         name: 'Biology',
-        description: ''
+        description: '',
+        prerequisite: ['Psychology','Genetics']
     },
     {
         name: 'First Aid',
-        description: ''
+        description: '',
+        prerequisite: ['Pathology']
     },
     {
         name: 'Hydroponics',
-        description: ''
+        description: '',
+        prerequisite: ['Botany']
     },
     {
         name: 'Geology',
-        description: ''
+        description: '',
+        prerequisite: ['Planetology','Asteroid Mining']
     },
     {
         name: 'Zero-G',
-        description: ''
+        description: '',
+        prerequisite: ['Asteroid Mining']
     },
     {
         name: 'Scavenging',
-        description: ''
+        description: '',
+        prerequisite: ['Jury Rigging','Asteroid Mining']
     },
     {
-        name: 'Heavy MAchinery',
-        description: ''
+        name: 'Heavy Machinery',
+        description: '',
+        prerequisite: ['Engineering','Asteroid Mining']
     },
     {
         name: 'Computers',
-        description: ''
+        description: '',
+        prerequisite: ['Hacking','Engineering']
     },
     {
         name: 'Mechanical Repair',
-        description: ''
+        description: '',
+        prerequisite: ['Vehicle Specialization','Engineering','Jury Rigging']
     },
     {
         name: 'Driving',
-        description: ''
+        description: '',
+        prerequisite: ['Vehicle Specialization']
     },
     {
         name: 'Piloting',
-        description: ''
+        description: '',
+        prerequisite: ['Astrogation','Vehicle Specialization']
     },
     {
         name: 'Mathematics',
-        description: ''
+        description: '',
+        prerequisite: ['Physics']
     },
     {
         name: 'Art',
-        description: ''
+        description: '',
+        prerequisite: ['Mysticism']
     },
     {
         name: 'Archaeology',
-        description: ''
+        description: '',
+        prerequisite: ['Mysticism']
     },
     {
         name: 'Theology',
-        description: ''
+        description: '',
+        prerequisite: ['Mysticism']
     },
     {
         name: 'Military Training',
-        description: ''
+        description: '',
+        prerequisite: ['Gunnery','Tactics','Firearms','Close-Quarters Combat','Explosives']
     },
     {
         name: 'Rimwise',
-        description: ''
+        description: '',
+        prerequisite: ['Firearms','Close-Quarters Combat']
     },
     {
         name: 'Athletics',
-        description: ''
+        description: '',
+        prerequisite: ['Close-Quarters Combat']
     },
     {
         name: 'Chemistry',
-        description: ''
+        description: '',
+        prerequisite: ['Explosives']
     }
 ];
 
-const Expert = [
+const Expert: {name: string, description: string, prerequisite: string[]}[] = [
     {
         name: 'Psychology',
         description: '',
-        perquisites: ['Biology']
+        prerequisite: ['Sophontology']
     },
     {
         name: 'Genetics',
         description: '',
-        perquisites: ['Biology']
+        prerequisite: ['Xenobiology']
     },
     {
         name: 'Pathology',
         description: '',
-        perquisites: ['First Aid']
+        prerequisite: ['Xenobiology','Surgery']
     },
     {
         name: 'Botany',
         description: '',
-        perquisites: ['Hydroponics']
+        prerequisite: ['Xenobiology']
     },
     {
         name: 'Planetology',
         description: '',
-        perquisites: ['Geology']
+        prerequisite: ['']
     },
     {
         name: 'Asteroid Mining',
         description: '',
-        perquisites: ['Geology','Zero-G','Scavenging','Heavy Machinery']
+        prerequisite: ['']
     },
     {
         name: 'Jury Rigging',
         description: '',
-        perquisites: ['Scavenging','Mechanical Repair']
+        prerequisite: ['Cybernetics']
     },
     {
         name: 'Engineering',
         description: '',
-        perquisites: ['Heavy Machinery','Computers','Mechanical Repair']
+        prerequisite: ['Robotics','Cybernetics','Artificial Intelligence']
     },
     {
-        name: '',
+        name: 'Hacking',
         description: '',
-        perquisites: ['']
+        prerequisite: ['Artificial intelligence']
+    },
+    {
+        name: 'Vehicle Specialization',
+        description:'',
+        prerequisite:['Command']
+    },
+    {
+        name: 'Astrogation',
+        description: '',
+        prerequisite: ['Hyperspace']
+    },
+    {
+        name: 'Physics',
+        description: '',
+        prerequisite: ['Hyperspace']
+    },
+    {
+        name: 'Mysticism',
+        description: '',
+        prerequisite: ['Xenoesotericism','Hyperspace']
+    },
+    {
+        name: 'Gunnery',
+        description: '',
+        prerequisite:['Weapon Specialization']
+    },
+    {
+        name: 'Firearms',
+        description: '',
+        prerequisite:['Weapon Specialization']
+    },
+    {
+        name: 'Close-Quaters Combat',
+        description: '',
+        prerequisite:['Weapon Specialization']
+    },
+    {
+        name: 'Explosives',
+        description: '',
+        prerequisite:['Weapon Specialization']
     }
 ];
+
+const Master: {name: string, description: string}[] = [
+    {
+        name: 'Sophontology',
+        description: ''
+    },
+    {
+        name: 'Xenobiology',
+        description: ''
+    },
+    {
+        name: 'Surgery',
+        description: ''
+    },
+    {
+        name: 'Cybernetics',
+        description: ''
+    },
+    {
+        name: 'Robotics',
+        description: ''
+    },
+    {
+        name: 'Artificial Intelligence',
+        description: ''
+    },
+    {
+        name: 'Command',
+        description: ''
+    },
+    {
+        name: 'Xenoesotericism',
+        description: ''
+    },
+    {
+        name: 'Weapon Specialization',
+        description: ''
+    }
+]
