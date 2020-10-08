@@ -1,127 +1,127 @@
 import {
-  MothershipClasses,
-  TeamsterSkills,
-  ScientistSkills,
-  AndroidSkills,
-  MarineSkills,
+  MOTHERSHIP_CLASSES,
+  TEAMSTER_SKILLS,
+  SCIENTIST_SKILLS,
+  ANDROID_SKILLS,
+  MARINE_SKILLS,
 } from "./lists/classes";
 import {
-  FirstNames,
-  LastNames,
-  AndroidNames,
-  AndroidVersion,
+  FIRST_NAMES,
+  LAST_NAMES,
+  ANDROID_NAMES,
+  ANDROID_VERSION,
 } from "./lists/names";
 import {
   randomNumberGenerator,
   batchRandomNumberGenerator,
 } from "./randomNumberGenerator";
-import { Loadouts } from "./lists/loadouts";
-import { Nightmares } from "./lists/nightmares";
-import { Patches } from "./lists/patches";
+import { LOADOUTS_LIST } from "./lists/loadouts";
+import { NIGHTMARES } from "./lists/nightmares";
+import { PATCHES } from "./lists/patches";
 
 export class MothershipCharacter {
-  MothershipClass: string;
-  FirstName: string;
-  LastName: string;
-  Intelligence: number;
-  Strength: number;
-  Speed: number;
-  Combat: number | string;
-  Sanity: number;
-  Fear: number;
-  Body: number;
-  Armor: number;
-  Gear: string;
-  Health: number;
-  Stress: number;
-  Resolve: number;
-  SkillProfile: { name: string; value: string };
-  Dealing: string;
-  ExperienceGain: string;
-  Nightmare: string;
-  Patch: string;
-  Credits: number;
+  mothershipClass: string;
+  firstName: string;
+  lastName: string;
+  intelligence: number;
+  strength: number;
+  speed: number;
+  combat: number | string;
+  sanity: number;
+  fear: number;
+  body: number;
+  armor: number;
+  gear: string;
+  health: number;
+  stress: number;
+  resolve: number;
+  skillProfile: { name: string; value: string };
+  dealing: string;
+  experienceGain: string;
+  nightmare: string;
+  patch: string;
+  credits: number;
 
   constructor() {
-    this.MothershipClass =
-      MothershipClasses[randomNumberGenerator(MothershipClasses.length)];
+    this.mothershipClass =
+      MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
     // set name based on if Android
-    switch (this.MothershipClass) {
+    switch (this.mothershipClass) {
       case "Android":
-        this.FirstName =
-          AndroidNames[randomNumberGenerator(AndroidNames.length)];
-        this.LastName =
-          AndroidVersion[randomNumberGenerator(AndroidVersion.length)];
+        this.firstName =
+          ANDROID_NAMES[randomNumberGenerator(ANDROID_NAMES.length)];
+        this.lastName =
+          ANDROID_VERSION[randomNumberGenerator(ANDROID_VERSION.length)];
         break;
       default:
-        this.FirstName = FirstNames[randomNumberGenerator(FirstNames.length)];
-        this.LastName = LastNames[randomNumberGenerator(FirstNames.length)];
+        this.firstName = FIRST_NAMES[randomNumberGenerator(FIRST_NAMES.length)];
+        this.lastName = LAST_NAMES[randomNumberGenerator(FIRST_NAMES.length)];
         break;
     }
     // generate stats
-    this.Intelligence = batchRandomNumberGenerator(6, 10);
-    this.Strength = batchRandomNumberGenerator(6, 10);
-    this.Speed = batchRandomNumberGenerator(6, 10);
-    this.Combat = batchRandomNumberGenerator(6, 10);
+    this.intelligence = batchRandomNumberGenerator(6, 10);
+    this.strength = batchRandomNumberGenerator(6, 10);
+    this.speed = batchRandomNumberGenerator(6, 10);
+    this.combat = batchRandomNumberGenerator(6, 10);
     // set Class specific values
-    switch (this.MothershipClass) {
+    switch (this.mothershipClass) {
       case "Teamster":
-        this.Speed = this.Speed + 5;
-        this.Strength = this.Strength + 5;
-        this.Sanity = 30;
-        this.Fear = 35;
-        this.Body = 30;
-        this.Armor = 35;
-        this.SkillProfile =
-          TeamsterSkills[randomNumberGenerator(TeamsterSkills.length)];
-        this.ExperienceGain = `Gain 1XP whenever you first set foot on an undiscovered planet.`;
-        this.Dealing = `Once per session, a Teamster may re-roll a roll on the Panic Effect Table.`;
+        this.speed = this.speed + 5;
+        this.strength = this.strength + 5;
+        this.sanity = 30;
+        this.fear = 35;
+        this.body = 30;
+        this.armor = 35;
+        this.skillProfile =
+          TEAMSTER_SKILLS[randomNumberGenerator(TEAMSTER_SKILLS.length)];
+        this.experienceGain = `Gain 1XP whenever you first set foot on an undiscovered planet.`;
+        this.dealing = `Once per session, a Teamster may re-roll a roll on the Panic Effect Table.`;
         break;
       case "Android":
-        this.Speed = this.Speed + 5;
-        this.Intelligence = this.Intelligence + 5;
-        this.Sanity = 20;
-        this.Fear = 85;
-        this.Body = 40;
-        this.Armor = 25;
-        this.SkillProfile =
-          AndroidSkills[randomNumberGenerator(AndroidSkills.length)];
-        this.ExperienceGain = `Gain 1XP whenever you interface with a piece of alien technology or with a higher intelligence.`;
-        this.Dealing = `Fear Saves made in the presence of Androids have Disadvantage.`;
+        this.speed = this.speed + 5;
+        this.intelligence = this.intelligence + 5;
+        this.sanity = 20;
+        this.fear = 85;
+        this.body = 40;
+        this.armor = 25;
+        this.skillProfile =
+          ANDROID_SKILLS[randomNumberGenerator(ANDROID_SKILLS.length)];
+        this.experienceGain = `Gain 1XP whenever you interface with a piece of alien technology or with a higher intelligence.`;
+        this.dealing = `Fear Saves made in the presence of Androids have Disadvantage.`;
         break;
       case "Scientist":
-        this.Intelligence = this.Intelligence + 10;
-        this.Sanity = 40;
-        this.Fear = 25;
-        this.Body = 25;
-        this.Armor = 30;
-        this.SkillProfile =
-          ScientistSkills[randomNumberGenerator(ScientistSkills.length)];
-        this.ExperienceGain = `Gain 1XP whenever you bring a piece of alien technology, or living organism, aboard the ship for study.`;
-        this.Dealing = `Whenever a Scientist fails a Sanity Save, every friendly player nearby gains 1 Stress.`;
+        this.intelligence = this.intelligence + 10;
+        this.sanity = 40;
+        this.fear = 25;
+        this.body = 25;
+        this.armor = 30;
+        this.skillProfile =
+          SCIENTIST_SKILLS[randomNumberGenerator(SCIENTIST_SKILLS.length)];
+        this.experienceGain = `Gain 1XP whenever you bring a piece of alien technology, or living organism, aboard the ship for study.`;
+        this.dealing = `Whenever a Scientist fails a Sanity Save, every friendly player nearby gains 1 Stress.`;
         break;
       case "Marine":
-        this.Combat =
-          this.Combat + 5 + " (+5 when a friendly Marine is nearby)";
-        this.Sanity = 25;
-        this.Fear = 30;
-        this.Body = 35;
-        this.Armor = 40;
-        this.SkillProfile =
-          MarineSkills[randomNumberGenerator(MarineSkills.length)];
-        this.ExperienceGain = `Gain 1 XP for killing an enemy.`;
-        this.Dealing = `Whenever a Marine Panics, every friendly player nearby must make a Fear Save`;
+        this.combat =
+          this.combat + 5 + " (+5 when a friendly Marine is nearby)";
+        this.sanity = 25;
+        this.fear = 30;
+        this.body = 35;
+        this.armor = 40;
+        this.skillProfile =
+          MARINE_SKILLS[randomNumberGenerator(MARINE_SKILLS.length)];
+        this.experienceGain = `Gain 1 XP for killing an enemy.`;
+        this.dealing = `Whenever a Marine Panics, every friendly player nearby must make a Fear Save`;
         break;
       default:
         break;
     }
-    this.Gear = Loadouts[randomNumberGenerator(Loadouts.length)];
-    this.Nightmare = Nightmares[randomNumberGenerator(Nightmares.length)];
-    this.Patch = Patches[randomNumberGenerator(Patches.length)];
-    this.Credits = batchRandomNumberGenerator(5, 10) * 10;
-    this.Health = this.Strength * 2;
-    this.Stress = 2;
-    this.Resolve = 0;
+    this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
+    this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
+    this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
+    this.credits = batchRandomNumberGenerator(5, 10) * 10;
+    this.health = this.strength * 2;
+    this.stress = 2;
+    this.resolve = 0;
   }
 }
 

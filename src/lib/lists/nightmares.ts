@@ -1,4 +1,4 @@
-export const Nightmares = [
+export const NIGHTMARES = [
   `Your migraine is splitting your skull. A dog rushes towards you, its eyes full of loving devotion. The dog's head explodes into a crimson mist, coating your hands like an accusation.`,
   `Your jaw unhinges as you vomit a torrent of earwigs.`,
   `You are having sex with someone with the face of an ant; they regard you coldly and whisper something you can't quite hear.`,

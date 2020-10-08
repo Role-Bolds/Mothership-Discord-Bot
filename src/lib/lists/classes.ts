@@ -1,6 +1,6 @@
-export const MothershipClasses = [`Teamster`, `Android`, `Scientist`, `Marine`];
+export const MOTHERSHIP_CLASSES = [`Teamster`, `Android`, `Scientist`, `Marine`];
 
-export const TeamsterSkills = [
+export const TEAMSTER_SKILLS = [
   {
     name: `**Space-Force Cadet**`,
     value: `**Zero-G:** 10% | Working in a vaccuum, vaccsuits, etc.
@@ -46,7 +46,7 @@ export const TeamsterSkills = [
   },
 ];
 
-export const AndroidSkills = [
+export const ANDROID_SKILLS = [
   {
     name: `**Hacker**`,
     value: `**Computers:** 10% | Fluent use of computers and networks.
@@ -74,7 +74,7 @@ export const AndroidSkills = [
   },
 ];
 
-export const ScientistSkills = [
+export const SCIENTIST_SKILLS = [
   {
     name: `**Botanist**`,
     value: `**Biology:** 10% | The study of life.
@@ -138,7 +138,7 @@ export const ScientistSkills = [
   },
 ];
 
-export const MarineSkills = [
+export const MARINE_SKILLS = [
   {
     name: `**Grunt**`,
     value: `**Military Training:** 10% | Standard basic training given to all military personnel.
@@ -148,7 +148,7 @@ export const MarineSkills = [
   {
     name: `**Thug**`,
     value: `**Military Training:** 10% | Standard basic training given to all military personnel.
-**Rimwise:** 10% | Knowledge of outer rim colonies, survivalue in the seedy parts of the galaxy.
+**Rimwise:** 10% | Knowledge of outer rim colonies, survival in the seedy parts of the galaxy.
 **Close-Quarters Combat:** 15% | Hand-to-hand, melee fighting.`,
   },
   {
@@ -178,7 +178,7 @@ export const MarineSkills = [
   },
   {
     name: `**Spy**`,
-    value: `**Rimwise:** 10% | Knowledge of outer rim colonies, survivalue in the seedy parts of the galaxy.
+    value: `**Rimwise:** 10% | Knowledge of outer rim colonies, survival in the seedy parts of the galaxy.
 **Linguistics:** 10% | Study of language.
 **Military Training:** 10% | Standard basic training given to all military personnel.`,
   },

@@ -1,6 +1,6 @@
 import { randomNumberGenerator } from "../randomNumberGenerator";
 
-export const FirstNames = [
+export const FIRST_NAMES = [
   `Malachi`,
   `Luke`,
   `Cortez`,
@@ -103,7 +103,7 @@ export const FirstNames = [
   `Khanh`,
 ];
 
-export const LastNames = [
+export const LAST_NAMES = [
   `Rex`,
   `Honey`,
   `Castro`,
@@ -236,7 +236,7 @@ function genAndroidVersion() {
   return v[randomNumberGenerator(v.length)] + i;
 }
 
-export const AndroidNames = [
+export const ANDROID_NAMES = [
   "Chromium",
   "Barium",
   "Thorium",
@@ -259,7 +259,7 @@ export const AndroidNames = [
   genAndroidName(),
 ];
 
-export const AndroidVersion = [
+export const ANDROID_VERSION = [
   "Alpha",
   "Beta",
   "Gamma",

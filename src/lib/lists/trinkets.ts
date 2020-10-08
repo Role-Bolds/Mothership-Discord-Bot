@@ -1,8 +1,8 @@
-export const Trinkets = [
+export const TRINKETS = [
   `Preserved Insectile Aberration`,
   `Faded Green Poker Chip`,
   `Antique Company Script (Asteroid Mine)`,
-  `Dessicated Husk Doll`,
+  `Desiccated Husk Doll`,
   `Alien Pressed Flower (common)`,
   `Necklace of Shell Casings`,
   `Corroded Android Logic Core`,

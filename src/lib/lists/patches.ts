@@ -1,4 +1,4 @@
-export const Patches = [
+export const PATCHES = [
   `"#1 Worker"`,
   `Security Guard patch`,
   `Blood Type (Reference Patch)`,

@@ -1,4 +1,6 @@
-const Trained: {name: string, description: string, prerequisite: string[]}[] = [
+import { debug } from "../debug";
+import { SkillList } from "../types";
+const TRAINED_SKILLS:SkillList = [
     {
         name: 'Linguistics',
         description: '',
@@ -101,7 +103,7 @@ const Trained: {name: string, description: string, prerequisite: string[]}[] = [
     }
 ];
 
-const Expert: {name: string, description: string, prerequisite: string[]}[] = [
+const EXPERT_SKILLS:SkillList = [
     {
         name: 'Psychology',
         description: '',
@@ -178,7 +180,7 @@ const Expert: {name: string, description: string, prerequisite: string[]}[] = [
         prerequisite:['Weapon Specialization']
     },
     {
-        name: 'Close-Quaters Combat',
+        name: 'Close-Quarters Combat',
         description: '',
         prerequisite:['Weapon Specialization']
     },
@@ -189,7 +191,7 @@ const Expert: {name: string, description: string, prerequisite: string[]}[] = [
     }
 ];
 
-const Master: {name: string, description: string}[] = [
+const MASTER_SKILLS:SkillList = [
     {
         name: 'Sophontology',
         description: ''
@@ -227,3 +229,45 @@ const Master: {name: string, description: string}[] = [
         description: ''
     }
 ]
+
+export class Skills{
+    trained: SkillList;
+    expert: SkillList;
+    master: SkillList;
+
+    constructor(initialSkills: string[]){
+        return null;
+    }
+
+    generate(){
+        return null;
+    }
+};
+
+export function checkSkillList(inputList: string[]){
+    // tslint:disable-next-line: prefer-const
+    let returnSkillList = [];
+    // tslint:disable-next-line: prefer-for-of
+    for (let inputIndex = 0; inputIndex < inputList.length; inputIndex++) {
+        const inputElement = inputList[inputIndex];
+        // tslint:disable-next-line: prefer-for-of
+        for (let skillListIndex = 0; skillListIndex < TRAINED_SKILLS.length; skillListIndex++) {
+            const skillListElement = TRAINED_SKILLS[skillListIndex];
+            if(inputElement === skillListElement.name){returnSkillList.push(skillListElement); break;}
+        }
+    }
+    return returnSkillList;
+}
+
+export function additionalSelectableSkills(skillsList:SkillList) {
+    // tslint:disable-next-line: prefer-const
+    let returns = [];
+    // tslint:disable-next-line: prefer-for-of
+    for (let index = 0; index < skillsList.length; index++) {
+      skillsList[index].prerequisite.forEach((element) => {
+        returns.push(element);
+      });
+    }
+    debug(`Generated skills unlock: ${returns}`)
+    return returns;
+  }

@@ -1,4 +1,4 @@
-export const LoadoutExcavation = [
+export const LOADOUT_EXCAVATION = [
   `**Excavation**
     **Crowbar:** Advantage on Strength checks to open jammed airlocks/lift heavy objects.
     **Hand welder:** 1d10 damage CQC. Ultra heat emitter: Cuts airlocks/heavy doors. -10 vs. Armor Save.
@@ -12,7 +12,7 @@ export const LoadoutExcavation = [
     **Vacsuit:** +7 Armor Save. Holds enough O2 for 12 hours, or 6 hours under stress. Contains short range comms and two headlamps. Disadvantage to Speed checks. If punctured, internal monitor will sound announcing decompression within 60 seconds.`,
 ];
 
-export const LoadoutExploration = [
+export const LOADOUT_EXPLORATION = [
   `**Exploration**
     **Vibechete:** CQC, 2d10 damage, Crit: hack off limb. Cuts through dense forestry, but not metal doors, airlocks, etc.
     **Rigging gun:** 2d10, Crit: impale for triple damage. 10m/30m/100m. 1 Retractable Harpoon/metal cable: Body/ instinct save or become entangled. +1d10 damage when grapnel is pulled out of target.
@@ -29,7 +29,7 @@ export const LoadoutExploration = [
     **Vacsuit:** +7 Armor Save. Holds enough O2 for 12 hours, or 6 hours under stress. Contains short range comms and two headlamps. Disadvantage on Speed checks. If punctured, internal monitor will sound announcing decompression within 60 seconds.`,
 ];
 
-export const LoadoutExtermination = [
+export const LOADOUT_EXTERMINATION = [
   `**Extermination**
     **SMG:** 4d10 damage. 10m/75m/150m Fully automatic. 1 clip/round, 5 clips.
     **Frag grenade (x6):** 1d10 damage. 20m/30m/40m. 15m AoE. Can deal 1MDMG to ships (or more if internal).
@@ -41,7 +41,7 @@ export const LoadoutExtermination = [
     **Standard battle dress:** Light plated armor for marines going into combat. +10% to Armor Save. (heads-up display, body cam, short-range comms).`,
 ];
 
-export const LoadoutExamination = [
+export const LOADOUT_EXAMINATION = [
   `**Examination**
     **Scalpel:** 1d10 damage. Crit: +1d10 DMG + bleeding. CQC. (+10 to Surgery skill.)
     **Tranq pistol:** No damage: Body[+] save vs unconscious 1d10 rounds. Crit: no save. 2m/10m/20m. 6 tranq darts.
@@ -54,9 +54,9 @@ export const LoadoutExamination = [
     **Hazard suit:** +5% Armor Save. Has air filter/can store up to 1 hour of air in small oxygen tank/can filter most toxic atmospheres. Protects against extreme heat and cold. Hydration reclaimer system, can make 1 liter of water last for 4 days. Includes shortwave comms and headlamp.`,
 ];
 
-export const Loadouts = [
-  String(LoadoutExcavation),
-  String(LoadoutExploration),
-  String(LoadoutExtermination),
-  String(LoadoutExamination),
+export const LOADOUTS_LIST = [
+  String(LOADOUT_EXCAVATION),
+  String(LOADOUT_EXPLORATION),
+  String(LOADOUT_EXTERMINATION),
+  String(LOADOUT_EXAMINATION),
 ];
