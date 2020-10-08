@@ -14,6 +14,10 @@ client.once("ready", () => {
 });
 
 client.on("message", async (message) => {
+if (!message.author.bot) {
+  /**
+   * Generate Character
+   */
   if (message.content === `${config.prefix} gen`) {
     try {
       const mschar = new MothershipCharacter();
@@ -35,7 +39,20 @@ client.on("message", async (message) => {
     } catch(error) {
       debug(error, 'error');
     }
-  }
+  };
+  /**
+   * Help message.
+   */
+  if (message.content === `${config.prefix} h`||message.content === `${config.prefix} help`|| message.mentions.has(client.user.id)) {
+    try {
+      await message.channel.send(`I can only do the following:
+\`${config.prefix} h\`,\`${config.prefix} help\`, <@${client.user.id}> to display this help message.
+\`${config.prefix} gen\` to generate a random character.`)
+    } catch(error) {
+      debug(error, 'error');
+    }
+  };
+}
 });
 
 client.login(config.token);
