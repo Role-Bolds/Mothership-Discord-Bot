@@ -6,14 +6,13 @@
     "configurations": [
         {
             "type": "node",
-            "name": "Launch Discord.js",
-            "program": "${workspaceFolder}/discordjs.ts",
+            "name": "Launch The Mothership",
+            "program": "${workspaceFolder}/src/main.ts",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "outputCapture": "std",
-            "envFile": "${workspaceFolder}/secrets/vscode.env",
+            //"outputCapture": "std",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/msb-compile/**/*.js"
