@@ -1,10 +1,12 @@
 import Discord = require("discord.js");
-import { MothershipCharacter } from "./lib/mothershipCharacterGenerator";
+import { MothershipCharacter } from "./lib/MothershipCharacterClass";
 import { Config } from "./lib/config";
-import { characterEmbedGen } from './lib/characterEmbedGen';
+import { characterEmbedGen } from './lib/embedGenerators';
 import { debug } from "./lib/debug";
-import { additionalSelectableSkills, checkSkillList } from "./lib/lists/skills";
-import { SkillList } from './lib/types';
+import { additionalSelectableSkills, checkSkillList, randomStartingSkills } from './lib/SkillsClass';
+import { skillType } from './lib/types';
+import { randomNumberGenerator } from './lib/randomNumberGenerator';
+import { MOTHERSHIP_CLASSES } from "./lib/lists/classes";
 const client = new Discord.Client();
 const config = new Config();
 
@@ -30,12 +32,44 @@ if (!message.author.bot) {
   };
   if (message.content === `${config.prefix} skills`) {
     try {
-      const skillTestList = ['Biology', 'Geology', 'Chemistry', 'Test', ''];
+      /* const skillTestList = ['Biology', 'Geology', 'Chemistry', 'Test', ''];
       debug(`Running skill check list: ${skillTestList}`)
-      const skillCheck:SkillList = checkSkillList(skillTestList);
+      const skillCheck:skillType[] = checkSkillList(skillTestList);
       debug(skillCheck, 'json');
       debug("Generating additional skills to select from");
-      debug(additionalSelectableSkills(skillCheck), 'json');
+      const newSkills = additionalSelectableSkills(skillCheck);
+      debug(newSkills, 'json');
+      const randomNewSkill = newSkills[randomNumberGenerator(newSkills.length)];
+      debug(`Random skill chosen: ${randomNewSkill}
+${JSON.stringify(checkSkillList([randomNewSkill]), null, 2)}`,'debug'); */
+      try {
+        debug("Testing Teamster Generation");
+        const testSkills = randomStartingSkills(MOTHERSHIP_CLASSES[0]);
+        debug(testSkills, 'json');
+      } catch(error) {
+        debug(error, 'error');
+      };
+      try {
+      debug("testing Android Generation");
+      const testSkills = randomStartingSkills(MOTHERSHIP_CLASSES[1]);
+      debug(testSkills, 'json');
+    } catch(error) {
+      debug(error, 'error');
+    }
+    try {
+      debug("testing Scientist Generation");
+      const testSkills = randomStartingSkills(MOTHERSHIP_CLASSES[2]);
+      debug(testSkills, 'json');
+    } catch(error) {
+      debug(error, 'error');
+    }
+    try {
+      debug("testing Marine Generation");
+      const testSkills = randomStartingSkills(MOTHERSHIP_CLASSES[3]);
+      debug(testSkills, 'json');
+    } catch(error) {
+      debug(error, 'error');
+    }
     } catch(error) {
       debug(error, 'error');
     }

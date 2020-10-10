@@ -241,5 +241,6 @@
         "papercut",
         "tock",
         "vaccuum"
-    ]
+    ],
+    "editor.tabSize": 2
 }

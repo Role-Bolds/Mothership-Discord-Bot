@@ -18,9 +18,11 @@ import {
 import { LOADOUTS_LIST } from "./lists/loadouts";
 import { NIGHTMARES } from "./lists/nightmares";
 import { PATCHES } from "./lists/patches";
+import { classType, skillType } from "./types";
+import { randomStartingSkills } from "./SkillsClass";
 
 export class MothershipCharacter {
-  mothershipClass: string;
+  mothershipClass: classType;
   firstName: string;
   lastName: string;
   intelligence: number;
@@ -35,6 +37,7 @@ export class MothershipCharacter {
   health: number;
   stress: number;
   resolve: number;
+  skills: skillType[];
   skillProfile: { name: string; value: string };
   dealing: string;
   experienceGain: string;
@@ -46,7 +49,7 @@ export class MothershipCharacter {
     this.mothershipClass =
       MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
     // set name based on if Android
-    switch (this.mothershipClass) {
+    switch (this.mothershipClass.name) {
       case "Android":
         this.firstName =
           ANDROID_NAMES[randomNumberGenerator(ANDROID_NAMES.length)];
@@ -64,7 +67,29 @@ export class MothershipCharacter {
     this.speed = batchRandomNumberGenerator(6, 10);
     this.combat = batchRandomNumberGenerator(6, 10);
     // set Class specific values
-    switch (this.mothershipClass) {
+    this.intelligence =
+      this.intelligence + this.mothershipClass.starting.intelligence;
+    this.strength = this.strength + this.mothershipClass.starting.strength;
+    this.speed = this.speed + this.mothershipClass.starting.speed;
+    this.combat = this.combat + this.mothershipClass.starting.combat;
+    this.sanity = this.mothershipClass.starting.sanity;
+    this.fear = this.mothershipClass.starting.fear;
+    this.body = this.mothershipClass.starting.body;
+    this.armor = this.mothershipClass.starting.armor;
+    this.skills = randomStartingSkills(this.mothershipClass);
+    this.experienceGain = this.mothershipClass.experienceGain
+    this.dealing = this.mothershipClass.dealing
+    //
+    this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
+    this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
+    this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
+    this.credits = batchRandomNumberGenerator(5, 10) * 10;
+    this.health = this.strength * 2;
+    this.stress = 2;
+    this.resolve = 0;
+  }
+}
+/* switch (this.mothershipClass.name) {
       case "Teamster":
         this.speed = this.speed + 5;
         this.strength = this.strength + 5;
@@ -114,16 +139,4 @@ export class MothershipCharacter {
         break;
       default:
         break;
-    }
-    this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
-    this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
-    this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = batchRandomNumberGenerator(5, 10) * 10;
-    this.health = this.strength * 2;
-    this.stress = 2;
-    this.resolve = 0;
-  }
-}
-
-// let test = new mothershipChar;
-// console.log(JSON.stringify(test));
+    } */

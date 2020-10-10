@@ -54,9 +54,8 @@ export const LOADOUT_EXAMINATION = [
     **Hazard suit:** +5% Armor Save. Has air filter/can store up to 1 hour of air in small oxygen tank/can filter most toxic atmospheres. Protects against extreme heat and cold. Hydration reclaimer system, can make 1 liter of water last for 4 days. Includes shortwave comms and headlamp.`,
 ];
 
-export const LOADOUTS_LIST = [
-  String(LOADOUT_EXCAVATION),
-  String(LOADOUT_EXPLORATION),
-  String(LOADOUT_EXTERMINATION),
-  String(LOADOUT_EXAMINATION),
-];
+export const LOADOUTS_LIST = LOADOUT_EXCAVATION.concat(
+  LOADOUT_EXPLORATION,
+  LOADOUT_EXTERMINATION,
+  LOADOUT_EXAMINATION
+  );

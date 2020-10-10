@@ -1,4 +1,100 @@
-export const MOTHERSHIP_CLASSES = [`Teamster`, `Android`, `Scientist`, `Marine`];
+import { classType } from '../types';
+
+export const MOTHERSHIP_CLASSES: classType[] =
+[
+  {
+    name: `Teamster`,
+    starting: {
+      sanity: 30,
+      fear: 35,
+      body: 30,
+      armor: 35,
+      speed: 5,
+      strength: 5,
+      intelligence: 0,
+      combat: 0,
+      skills: {
+        guaranteed: ['Zero-G','Mechanical Repair'],
+        pick: {
+          list: ['Heavy Machinery', 'Piloting'],
+          choose: 1
+        }
+      },
+      skillPoints: 4
+    },
+    experienceGain: 'Gain 1XP whenever you first set foot on an undiscovered planet.',
+    dealing: 'Once per session, a Teamster may re-roll a roll on the Panic Effect Table.'
+  },
+  {
+    name: `Android`,
+    starting: {
+      sanity: 20,
+      fear: 35,
+      body: 30,
+      armor: 35,
+      speed: 5,
+      intelligence: 5,
+      strength: 0,
+      combat: 0,
+      skills: {
+        guaranteed: ['Linguistics', 'Computers', 'Mathematics'],
+        pick:{
+          list: [],
+          choose: 0
+        }
+      },
+      skillPoints: 2
+    },
+    experienceGain: 'Gain 1XP whenever you interface with a piece of alien technology or with a higher intelligence.',
+    dealing: 'Fear Saves made in the presence of Androids have Disadvantage.'
+  },
+  {
+    name: `Scientist`,
+    starting: {
+      sanity: 40,
+      fear: 35,
+      body: 30,
+      armor: 35,
+      intelligence: 10,
+      speed: 0,
+      strength: 0,
+      combat: 0,
+      skills: {
+        guaranteed: [],
+        pick: {
+          list: ['Biology','Hydroponics','Geology','Computers','Mathematics',"Chemistry"],
+          choose: 2
+        }
+      },
+      skillPoints: 3
+    },
+    experienceGain: 'Gain 1XP whenever you bring a piece of alien technology, or living organism, aboard the ship for study.',
+    dealing: 'Whenever a Scientist fails a Sanity Save, every friendly player nearby gains 1 Stress.'
+  },
+  {
+    name: `Marine`,
+    starting: {
+      sanity: 25,
+      fear: 35,
+      body: 30,
+      armor: 35,
+      combat: 5,
+      intelligence: 0,
+      speed: 0,
+      strength: 0,
+      skills: {
+        guaranteed:['Military Training'],
+        pick:{
+          list: [],
+          choose: 0
+        }
+      },
+      skillPoints: 3
+    },
+    experienceGain: 'Gain 1 XP for killing an enemy.',
+    dealing: 'Whenever a Marine Panics, every friendly player nearby must make a Fear Save'
+  }
+];
 
 export const TEAMSTER_SKILLS = [
   {
