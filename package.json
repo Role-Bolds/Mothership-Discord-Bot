@@ -7,7 +7,7 @@
     "lib": "src/lib"
   },
   "dependencies": {
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.11.8",
     "discord.js": "^12.3.1",
     "dotenv": "^8.2.0",
     "ts-node": "^9.0.0"
