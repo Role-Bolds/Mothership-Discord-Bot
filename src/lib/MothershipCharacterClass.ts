@@ -22,7 +22,7 @@ export class MothershipCharacter {
   intelligence: number;
   strength: number;
   speed: number;
-  combat: number | string;
+  combat: number;
   sanity: number;
   fear: number;
   body: number;
@@ -71,10 +71,10 @@ export class MothershipCharacter {
         break;
     }
     // generate stats
-    this.intelligence = batchRandomNumberGenerator(6, 10);
-    this.strength = batchRandomNumberGenerator(6, 10);
-    this.speed = batchRandomNumberGenerator(6, 10);
-    this.combat = batchRandomNumberGenerator(6, 10);
+    this.intelligence = batchRandomNumberGenerator(6, 10).add;
+    this.strength = batchRandomNumberGenerator(6, 10).add;
+    this.speed = batchRandomNumberGenerator(6, 10).add;
+    this.combat = batchRandomNumberGenerator(6, 10).add;
     // set Class specific values
     this.intelligence =
       this.intelligence + this.mothershipClass.starting.intelligence;
@@ -92,7 +92,7 @@ export class MothershipCharacter {
     this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
     this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
     this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = batchRandomNumberGenerator(5, 10) * 10;
+    this.credits = batchRandomNumberGenerator(5, 10).add * 10;
     this.health = this.strength * 2;
     this.stress = 2;
     this.resolve = 0;
