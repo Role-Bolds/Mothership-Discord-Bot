@@ -39,9 +39,24 @@ export class MothershipCharacter {
   patch: string;
   credits: number;
 
-  constructor() {
-    this.mothershipClass =
-      MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
+  constructor(classSelector?:string) {
+    switch (classSelector) {
+      case 'teamster':
+        this.mothershipClass = MOTHERSHIP_CLASSES[0];
+        break;
+      case 'android':
+        this.mothershipClass = MOTHERSHIP_CLASSES[1];
+        break;
+      case 'scientist':
+        this.mothershipClass = MOTHERSHIP_CLASSES[2];
+        break;
+      case 'marine':
+        this.mothershipClass = MOTHERSHIP_CLASSES[3];
+        break;
+      default:
+        this.mothershipClass = MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
+        break;
+      }
     // set name based on if Android
     switch (this.mothershipClass.name) {
       case "Android":

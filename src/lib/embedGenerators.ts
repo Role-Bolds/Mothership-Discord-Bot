@@ -1,5 +1,5 @@
 import { MothershipCharacter } from "./MothershipCharacterClass";
-import { green, white, blue, red } from "color-name";
+import { green, orange, blue, red } from "color-name";
 import { User } from "discord.js";
 import { skillType } from "./types";
 
@@ -20,9 +20,9 @@ export function characterEmbedGen(mschar: MothershipCharacter, user: User) {
   const classColor = () => {
     switch (mschar.mothershipClass.name){
       case "Teamster":
-        return blue;
+        return orange;
       case "Scientist":
-        return white;
+        return blue;
       case "Android":
         return red;
       case "Marine":

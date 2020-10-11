@@ -150,5 +150,6 @@ ${JSON.stringify(input, null, 2)}`);
     }
     // debug(`Skill points left to sped: ${skillPoints}`)
   }
+  debug(initialSkills, 'json');
   return initialSkills;
 }
