@@ -1,10 +1,4 @@
-import {
-  MOTHERSHIP_CLASSES,
-  TEAMSTER_SKILLS,
-  SCIENTIST_SKILLS,
-  ANDROID_SKILLS,
-  MARINE_SKILLS,
-} from "./lists/classes";
+import { MOTHERSHIP_CLASSES } from "./lists/classes";
 import {
   FIRST_NAMES,
   LAST_NAMES,

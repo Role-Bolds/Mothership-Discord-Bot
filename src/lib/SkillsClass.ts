@@ -105,7 +105,7 @@ ${JSON.stringify(input, null, 2)}`);
       initialList = initialList;
       break;
     default:
-      for (let index = 0; index < input.starting.skills.pick.choose; ) {
+      for (let index = 0; index < input.starting.skills.pick.choose;) {
         const element =
           input.starting.skills.pick.list[
             randomNumberGenerator(input.starting.skills.pick.list.length)

@@ -1,5 +1,5 @@
 import { MothershipCharacter } from "./MothershipCharacterClass";
-import { green } from "color-name";
+import { green, white, blue, red } from "color-name";
 import { User } from "discord.js";
 import { skillType } from "./types";
 
@@ -12,13 +12,27 @@ export function characterEmbedGen(mschar: MothershipCharacter, user: User) {
   const marineCombatBonus = () => {
     switch (mschar.mothershipClass.name) {
       case "Marine":
-        return '+5 Combat bonus whenever a near fellow Marine is nearby';
+        return '\n+5 Combat bonus whenever a near fellow Marine is nearby';
       default:
         return '';
     }
   };
+  const classColor = () => {
+    switch (mschar.mothershipClass.name){
+      case "Teamster":
+        return blue;
+      case "Scientist":
+        return white;
+      case "Android":
+        return red;
+      case "Marine":
+        return green;
+      default:
+        return green;
+    }
+  }
   return {
-    color: green,
+    color: classColor(),
     title: `${mschar.mothershipClass.name} | ${mschar.firstName} ${mschar.lastName}`,
     author: {
       name: `${user.username}`,
@@ -29,7 +43,7 @@ ${mschar.gear}`,
     fields: [
       {
         name: "Stats",
-        value: `Str: ${mschar.strength} | Spe: ${mschar.speed} | Int: ${mschar.intelligence} | Com: ${mschar.combat}\n${marineCombatBonus()}`,
+        value: `Str: ${mschar.strength} | Spe: ${mschar.speed} | Int: ${mschar.intelligence} | Com: ${mschar.combat}${marineCombatBonus()}`,
         inline: true,
       },
       {
