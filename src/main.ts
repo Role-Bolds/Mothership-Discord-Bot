@@ -53,7 +53,7 @@ V:${config.version}`);
       }
       // else use arg to generate specific class
       // if invalid arg is given random character will generate
-      else {
+    else {
       try {
         const mschar = new MothershipCharacter(args[0].toLowerCase());
         const mothershipCharEmbed = characterEmbedGen(mschar, message.author);

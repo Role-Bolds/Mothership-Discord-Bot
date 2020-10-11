@@ -7,7 +7,7 @@ import {
 } from "./lists/names";
 import {
   randomNumberGenerator,
-  batchRandomNumberGenerator,
+  batchRandomNumberGenerator, reducer
 } from "./randomNumberGenerator";
 import { LOADOUTS_LIST } from "./lists/loadouts";
 import { NIGHTMARES } from "./lists/nightmares";
@@ -71,10 +71,10 @@ export class MothershipCharacter {
         break;
     }
     // generate stats
-    this.intelligence = batchRandomNumberGenerator(6, 10).add;
-    this.strength = batchRandomNumberGenerator(6, 10).add;
-    this.speed = batchRandomNumberGenerator(6, 10).add;
-    this.combat = batchRandomNumberGenerator(6, 10).add;
+    this.intelligence = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.strength = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.speed = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.combat = batchRandomNumberGenerator(6, 10).reduce(reducer);
     // set Class specific values
     this.intelligence =
       this.intelligence + this.mothershipClass.starting.intelligence;
@@ -92,60 +92,9 @@ export class MothershipCharacter {
     this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
     this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
     this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = batchRandomNumberGenerator(5, 10).add * 10;
+    this.credits = batchRandomNumberGenerator(5, 10).reduce(reducer) * 10;
     this.health = this.strength * 2;
     this.stress = 2;
     this.resolve = 0;
   }
 }
-/* switch (this.mothershipClass.name) {
-      case "Teamster":
-        this.speed = this.speed + 5;
-        this.strength = this.strength + 5;
-        this.sanity = 30;
-        this.fear = 35;
-        this.body = 30;
-        this.armor = 35;
-        this.skillProfile =
-          TEAMSTER_SKILLS[randomNumberGenerator(TEAMSTER_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you first set foot on an undiscovered planet.`;
-        this.dealing = `Once per session, a Teamster may re-roll a roll on the Panic Effect Table.`;
-        break;
-      case "Android":
-        this.speed = this.speed + 5;
-        this.intelligence = this.intelligence + 5;
-        this.sanity = 20;
-        this.fear = 85;
-        this.body = 40;
-        this.armor = 25;
-        this.skillProfile =
-          ANDROID_SKILLS[randomNumberGenerator(ANDROID_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you interface with a piece of alien technology or with a higher intelligence.`;
-        this.dealing = `Fear Saves made in the presence of Androids have Disadvantage.`;
-        break;
-      case "Scientist":
-        this.intelligence = this.intelligence + 10;
-        this.sanity = 40;
-        this.fear = 25;
-        this.body = 25;
-        this.armor = 30;
-        this.skillProfile =
-          SCIENTIST_SKILLS[randomNumberGenerator(SCIENTIST_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you bring a piece of alien technology, or living organism, aboard the ship for study.`;
-        this.dealing = `Whenever a Scientist fails a Sanity Save, every friendly player nearby gains 1 Stress.`;
-        break;
-      case "Marine":
-        this.combat =
-          this.combat + 5 + " (+5 when a friendly Marine is nearby)";
-        this.sanity = 25;
-        this.fear = 30;
-        this.body = 35;
-        this.armor = 40;
-        this.skillProfile =
-          MARINE_SKILLS[randomNumberGenerator(MARINE_SKILLS.length)];
-        this.experienceGain = `Gain 1 XP for killing an enemy.`;
-        this.dealing = `Whenever a Marine Panics, every friendly player nearby must make a Fear Save`;
-        break;
-      default:
-        break;
-    } */

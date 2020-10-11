@@ -4,4 +4,6 @@ node_js:
 install: npm install
 before_script:
   - cp ./secrets/sample-config.json ./secrets/config.json
-script: npm test
+  - npm test
+script:
+  - tsc -p ./tsconfig.json

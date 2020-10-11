@@ -19,3 +19,7 @@ export function batchRandomNumberGenerator(batchRoll: number, maxNumber: number)
   } while (index < batchRoll);
   return results;
 }
+
+export function reducer(accumulator: any, currentValue: any) {
+  return accumulator + currentValue;
+}
