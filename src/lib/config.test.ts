@@ -1,6 +1,5 @@
-
-import * as chai from "chai";
 import "mocha";
+import * as chai from "chai";
 import { Config } from "./config";
 
 chai.should();

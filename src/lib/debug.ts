@@ -1,26 +1,22 @@
 import { Config } from "./config";
 const config = new Config();
 
-export function debug(message: any, type?: string) {
+export function debug(message: string | object, type?: string) {
   if (config.debug) {
     switch (type) {
       case "debug":
         // tslint:disable-next-line: no-console
-        console.log(`[DEBUG] ${message}`);
-        break;
+        return console.log(`[DEBUG] ${message}`);
       case "error":
         // tslint:disable-next-line: no-console
-        console.error(`[ERROR] ${message}`);
-        break;
+        return console.error(`[ERROR] ${message}`);
       case "json":
         // tslint:disable-next-line: no-console
-        console.log(`[DEBUG]
+        return console.log(`[DEBUG]
 ${JSON.stringify(message, null, 2)}`);
-        break;
       default:
         // tslint:disable-next-line: no-console
-        console.log(`[DEBUG] ${message}`);
-        break;
+        return console.log(`[DEBUG] ${message}`);
     }
   }
 }
