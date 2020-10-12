@@ -40,6 +40,7 @@ export class MothershipCharacter {
   credits: number;
 
   constructor(classSelector?:string) {
+    const generateItems = false;
     switch (classSelector) {
       case 'teamster':
         this.mothershipClass = MOTHERSHIP_CLASSES[0];
@@ -86,15 +87,20 @@ export class MothershipCharacter {
     this.body = this.mothershipClass.starting.body;
     this.armor = this.mothershipClass.starting.armor;
     this.skills = randomStartingSkills(this.mothershipClass);
-    this.experienceGain = this.mothershipClass.experienceGain
-    this.dealing = this.mothershipClass.dealing
+    this.experienceGain = this.mothershipClass.experienceGain;
+    this.dealing = this.mothershipClass.dealing;
     //
     this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
     this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
     this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = batchRandomNumberGenerator(5, 10).reduce(reducer) * 10;
+    this.credits = this._generateItems(generateItems);
     this.health = this.strength * 2;
     this.stress = 2;
     this.resolve = 0;
+  }
+
+  _generateItems(generateItems:boolean , type?:string) {
+    if(generateItems){return batchRandomNumberGenerator(5, 10).reduce(reducer) * 10}
+    else{return batchRandomNumberGenerator(5,10).reduce(reducer)};
   }
 }

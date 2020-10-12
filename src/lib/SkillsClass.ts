@@ -121,8 +121,8 @@ ${JSON.stringify(input, null, 2)}`);
   }
 
   let initialSkills: skillType[] = checkSkillList(initialList);
-  // debug(`Skills:
-  // ${JSON.stringify(initialSkills, null, 2)}`);
+   debug(`Skills:
+${JSON.stringify(initialSkills, null, 2)}`);
   let skillPoints = input.starting.skillPoints;
   while (skillPoints > 0) {
     // debug(`Skill Points: ${skillPoints}`);

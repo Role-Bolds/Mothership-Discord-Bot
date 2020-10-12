@@ -11,10 +11,10 @@ const testRandom = 100;
 
 describe("Random number generator", () => {
   describe(`main function:{maxNumber: ${maxNumber}, testRandom: ${testRandom}}`, () => {
+    it("exist as function", () => {
+      expect(randomNumberGenerator).to.be.a("function");
+    }).slow(2);
     describe("Expect it to:", () => {
-      it("exist as function", () => {
-        expect(randomNumberGenerator).to.be.a("function");
-      }).slow(2);
       it(`run ${testRandom} times with input ${maxNumber} return number within range [0,${
         maxNumber - 1
       }]`, () => {
@@ -28,11 +28,11 @@ describe("Random number generator", () => {
       }).slow(30);
     });
   });
-  describe(`batch function:{maxNumber: ${maxNumber}, maxBatch: ${maxBatch} testRandom: ${testRandom}}`, () => {
+  describe(`batch function:{maxNumber: ${maxNumber}, maxBatch: ${maxBatch}, testRandom: ${testRandom}}`, () => {
+    it("exists as function", () => {
+      expect(batchRandomNumberGenerator).to.be.a("function");
+    }).slow(2);
     describe("Expect it to:", () => {
-      it("exists as function", () => {
-        expect(batchRandomNumberGenerator).to.be.a("function");
-      }).slow(2);
       it(`run ${testRandom} times with input ${maxNumber} return number within range [0,${
         maxNumber - 1
       }]`, () => {
