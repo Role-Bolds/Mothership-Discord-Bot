@@ -1,10 +1,4 @@
-import {
-  MOTHERSHIP_CLASSES,
-  TEAMSTER_SKILLS,
-  SCIENTIST_SKILLS,
-  ANDROID_SKILLS,
-  MARINE_SKILLS,
-} from "./lists/classes";
+import { MOTHERSHIP_CLASSES } from "./lists/classes";
 import {
   FIRST_NAMES,
   LAST_NAMES,
@@ -13,7 +7,7 @@ import {
 } from "./lists/names";
 import {
   randomNumberGenerator,
-  batchRandomNumberGenerator,
+  batchRandomNumberGenerator, reducer
 } from "./randomNumberGenerator";
 import { LOADOUTS_LIST } from "./lists/loadouts";
 import { NIGHTMARES } from "./lists/nightmares";
@@ -28,7 +22,7 @@ export class MothershipCharacter {
   intelligence: number;
   strength: number;
   speed: number;
-  combat: number | string;
+  combat: number;
   sanity: number;
   fear: number;
   body: number;
@@ -45,9 +39,25 @@ export class MothershipCharacter {
   patch: string;
   credits: number;
 
-  constructor() {
-    this.mothershipClass =
-      MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
+  constructor(classSelector?:string) {
+    const generateItems = false;
+    switch (classSelector) {
+      case 'teamster':
+        this.mothershipClass = MOTHERSHIP_CLASSES[0];
+        break;
+      case 'android':
+        this.mothershipClass = MOTHERSHIP_CLASSES[1];
+        break;
+      case 'scientist':
+        this.mothershipClass = MOTHERSHIP_CLASSES[2];
+        break;
+      case 'marine':
+        this.mothershipClass = MOTHERSHIP_CLASSES[3];
+        break;
+      default:
+        this.mothershipClass = MOTHERSHIP_CLASSES[randomNumberGenerator(MOTHERSHIP_CLASSES.length)];
+        break;
+      }
     // set name based on if Android
     switch (this.mothershipClass.name) {
       case "Android":
@@ -62,10 +72,10 @@ export class MothershipCharacter {
         break;
     }
     // generate stats
-    this.intelligence = batchRandomNumberGenerator(6, 10);
-    this.strength = batchRandomNumberGenerator(6, 10);
-    this.speed = batchRandomNumberGenerator(6, 10);
-    this.combat = batchRandomNumberGenerator(6, 10);
+    this.intelligence = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.strength = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.speed = batchRandomNumberGenerator(6, 10).reduce(reducer);
+    this.combat = batchRandomNumberGenerator(6, 10).reduce(reducer);
     // set Class specific values
     this.intelligence =
       this.intelligence + this.mothershipClass.starting.intelligence;
@@ -77,66 +87,20 @@ export class MothershipCharacter {
     this.body = this.mothershipClass.starting.body;
     this.armor = this.mothershipClass.starting.armor;
     this.skills = randomStartingSkills(this.mothershipClass);
-    this.experienceGain = this.mothershipClass.experienceGain
-    this.dealing = this.mothershipClass.dealing
+    this.experienceGain = this.mothershipClass.experienceGain;
+    this.dealing = this.mothershipClass.dealing;
     //
     this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
     this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
     this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = batchRandomNumberGenerator(5, 10) * 10;
+    this.credits = this._generateItems(generateItems);
     this.health = this.strength * 2;
     this.stress = 2;
     this.resolve = 0;
   }
+
+  _generateItems(generateItems:boolean , type?:string) {
+    if(generateItems){return batchRandomNumberGenerator(5, 10).reduce(reducer) * 10}
+    else{return batchRandomNumberGenerator(5,10).reduce(reducer)};
+  }
 }
-/* switch (this.mothershipClass.name) {
-      case "Teamster":
-        this.speed = this.speed + 5;
-        this.strength = this.strength + 5;
-        this.sanity = 30;
-        this.fear = 35;
-        this.body = 30;
-        this.armor = 35;
-        this.skillProfile =
-          TEAMSTER_SKILLS[randomNumberGenerator(TEAMSTER_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you first set foot on an undiscovered planet.`;
-        this.dealing = `Once per session, a Teamster may re-roll a roll on the Panic Effect Table.`;
-        break;
-      case "Android":
-        this.speed = this.speed + 5;
-        this.intelligence = this.intelligence + 5;
-        this.sanity = 20;
-        this.fear = 85;
-        this.body = 40;
-        this.armor = 25;
-        this.skillProfile =
-          ANDROID_SKILLS[randomNumberGenerator(ANDROID_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you interface with a piece of alien technology or with a higher intelligence.`;
-        this.dealing = `Fear Saves made in the presence of Androids have Disadvantage.`;
-        break;
-      case "Scientist":
-        this.intelligence = this.intelligence + 10;
-        this.sanity = 40;
-        this.fear = 25;
-        this.body = 25;
-        this.armor = 30;
-        this.skillProfile =
-          SCIENTIST_SKILLS[randomNumberGenerator(SCIENTIST_SKILLS.length)];
-        this.experienceGain = `Gain 1XP whenever you bring a piece of alien technology, or living organism, aboard the ship for study.`;
-        this.dealing = `Whenever a Scientist fails a Sanity Save, every friendly player nearby gains 1 Stress.`;
-        break;
-      case "Marine":
-        this.combat =
-          this.combat + 5 + " (+5 when a friendly Marine is nearby)";
-        this.sanity = 25;
-        this.fear = 30;
-        this.body = 35;
-        this.armor = 40;
-        this.skillProfile =
-          MARINE_SKILLS[randomNumberGenerator(MARINE_SKILLS.length)];
-        this.experienceGain = `Gain 1 XP for killing an enemy.`;
-        this.dealing = `Whenever a Marine Panics, every friendly player nearby must make a Fear Save`;
-        break;
-      default:
-        break;
-    } */

@@ -1,21 +1,25 @@
 /**
- * Generate random number with a defined max.
- * @param max Maximum number that can be generated.
+ * Generate random number with a defined max range.
+ * @param maxNumber Maximum number that can be generated minus 1.
  */
-export function randomNumberGenerator(max: number) {
-  return Math.floor(Math.random() * max);
+export function randomNumberGenerator(maxNumber: number) {
+  return Math.floor(Math.random() * maxNumber);
 }
 /**
- * Batch generate a random number with a defined max.
- * @param numberToRoll How many different numbers to generate.
- * @param max Maximum number that can be generated.
+ * Batch generate a random number with a defined max range.
+ * @param batchRoll How many different numbers to generate.
+ * @param maxNumber Maximum number that can be generated minus 1.
  */
-export function batchRandomNumberGenerator(numberToRoll: number, max: number) {
-  let i = 0;
-  let r = 0;
+export function batchRandomNumberGenerator(batchRoll: number, maxNumber: number) {
+  let index = 0;
+  let results:number[] = [];
   do {
-    r = r + randomNumberGenerator(max);
-    i++;
-  } while (i < numberToRoll);
-  return r;
+    results = results.concat(randomNumberGenerator(maxNumber));
+    index++;
+  } while (index < batchRoll);
+  return results;
+}
+
+export function reducer(accumulator: any, currentValue: any) {
+  return accumulator + currentValue;
 }

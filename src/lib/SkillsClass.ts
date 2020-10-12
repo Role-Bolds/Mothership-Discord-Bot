@@ -105,7 +105,7 @@ ${JSON.stringify(input, null, 2)}`);
       initialList = initialList;
       break;
     default:
-      for (let index = 0; index < input.starting.skills.pick.choose; ) {
+      for (let index = 0; index < input.starting.skills.pick.choose;) {
         const element =
           input.starting.skills.pick.list[
             randomNumberGenerator(input.starting.skills.pick.list.length)
@@ -121,8 +121,8 @@ ${JSON.stringify(input, null, 2)}`);
   }
 
   let initialSkills: skillType[] = checkSkillList(initialList);
-  // debug(`Skills:
-  // ${JSON.stringify(initialSkills, null, 2)}`);
+   debug(`Skills:
+${JSON.stringify(initialSkills, null, 2)}`);
   let skillPoints = input.starting.skillPoints;
   while (skillPoints > 0) {
     // debug(`Skill Points: ${skillPoints}`);
@@ -150,5 +150,6 @@ ${JSON.stringify(input, null, 2)}`);
     }
     // debug(`Skill points left to sped: ${skillPoints}`)
   }
+  debug(initialSkills, 'json');
   return initialSkills;
 }
