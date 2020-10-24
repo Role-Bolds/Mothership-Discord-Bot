@@ -4,14 +4,13 @@ node_js:
 env:
   global:
     - COVERALLS_PARALLEL=true
-install: npm install
-before_script:
-  - cp ./secrets/sample-config.json ./secrets/config.json
-  - npm test
-script:
-  - tsc -p ./tsconfig.json
 jobs:
+  install: npm install
+  before_script:
+    - cp ./secrets/sample-config.json ./secrets/config.json
+    - npm test
   include:
+    - script: tsc -p ./tsconfig.json
     - script: COVERALLS_FLAG_NAME=test-1 make test-coveralls-1
     - script: COVERALLS_FLAG_NAME=test-2 make test-coveralls-2
 notifications:
