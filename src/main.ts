@@ -35,6 +35,8 @@ V:${config.version}`);
   // Ignore anything else without proper prefix
   if(!message.content.startsWith(config.prefix))return;
   const args = message.content.slice(config.prefix.length).trim().split(/ +/);
+  /*TODO Make list sortable with function.
+  */
   const command = args.shift().toLowerCase();
   /**
    * Generate Character

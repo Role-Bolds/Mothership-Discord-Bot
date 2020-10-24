@@ -93,13 +93,13 @@ export class MothershipCharacter {
     this.gear = LOADOUTS_LIST[randomNumberGenerator(LOADOUTS_LIST.length)];
     this.nightmare = NIGHTMARES[randomNumberGenerator(NIGHTMARES.length)];
     this.patch = PATCHES[randomNumberGenerator(PATCHES.length)];
-    this.credits = this._generateItems(generateItems);
+    this.credits = this._generateItems({ generateItems });
     this.health = this.strength * 2;
     this.stress = 2;
     this.resolve = 0;
   }
 
-  _generateItems(generateItems:boolean , type?:string) {
+  _generateItems({ generateItems, type }: { generateItems: boolean; type?: string; }) {
     if(generateItems){return batchRandomNumberGenerator(5, 10).reduce(reducer) * 10}
     else{return batchRandomNumberGenerator(5,10).reduce(reducer)};
   }

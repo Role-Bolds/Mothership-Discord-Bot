@@ -1,7 +1,32 @@
 {
-    "folders": [
-        {
-            "path": "."
-        }
-    ]
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.tabSize": 2,
+		"diffEditor.codeLens": true,
+		"mocha.files.glob": "./**/*.test.ts",
+		"mocha.requires": [
+			"ts-node/register"
+		],
+		"mocha.sideBarOptions": {
+			"lens": true, 
+			"decoration": true,
+			"autoUpdateTime": 2000,
+			"showDebugTestStatus": true 
+		},
+		"mocha.coverage": { 
+			"enable": true,
+			"decoration": true,
+			"runWithInterval": false,
+			"autoUpdateInterval": 20000,
+			"activeOnStart": true,
+			"runAfterTest": false,
+			"reporters": []
+		},
+		"mochaExplorer.files": "src/**/*.test.ts",
+    "mochaExplorer.require": "ts-node/register"
+	}
 }

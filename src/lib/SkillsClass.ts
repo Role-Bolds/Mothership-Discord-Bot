@@ -4,38 +4,11 @@ import { classType, skillType } from "./types";
 import { randomNumberGenerator } from "./randomNumberGenerator";
 
 export class Skills {
-  // tslint:disable-next-line: variable-name
-  private _list: skillType[];
-  public get list(): skillType[] {
-    return this._list;
-  }
-  public set list(value: skillType[]) {
-    this._list = value;
-  }
-  // tslint:disable-next-line: variable-name
-  private _points: number;
-  public get points(): number {
-    return this._points;
-  }
-  public set points(value: number) {
-    this._points = value;
-  }
-
-  constructor(initialSkills: string[], initialPoints: number) {
-    this._list = checkSkillList(initialSkills);
-    this._points = initialPoints;
-  }
-
-  generate() {
-    return null;
-  }
-}
-
 /**
  * Generates skillList type list from string list input.
  * @param inputList String list to check
  */
-export function checkSkillList(inputList: string[]) {
+checkSkillList(inputList: string[]) {
   // tslint:disable-next-line: prefer-const
   let returnSkillList: skillType[] = [];
   /**
@@ -62,12 +35,11 @@ export function checkSkillList(inputList: string[]) {
   }
   return returnSkillList;
 }
-
 /**
  * Get string list of skills that can be selected from.
  * @param skillsList skillList type to sort through.
  */
-export function additionalSelectableSkills(skillsList: skillType[]) {
+additionalSelectableSkills(skillsList: skillType[]) {
   // tslint:disable-next-line: prefer-const
   let returns: string[] = [];
   // tslint:disable-next-line: prefer-for-of
@@ -80,6 +52,14 @@ export function additionalSelectableSkills(skillsList: skillType[]) {
   return returns;
 }
 
+}
+
+
+ /* TODO Make function for generating a new skill,
+ accept string[] or skillType[] input
+ optional spending limit
+ optional choice limit
+ ?tag for following chain? */
 export function selectNewSkill() {
   return null;
 }
@@ -88,6 +68,7 @@ export function selectNewSkill() {
  * @param input
  */
 export function randomStartingSkills(input: classType) {
+  const skills = new Skills();
   debug(`Using:
 ${JSON.stringify(input, null, 2)}`);
   let initialList: string[] = [];
@@ -120,14 +101,14 @@ ${JSON.stringify(input, null, 2)}`);
       break;
   }
 
-  let initialSkills: skillType[] = checkSkillList(initialList);
+  let initialSkills: skillType[] = skills.checkSkillList(initialList);
    debug(`Skills:
 ${JSON.stringify(initialSkills, null, 2)}`);
   let skillPoints = input.starting.skillPoints;
   while (skillPoints > 0) {
     // debug(`Skill Points: ${skillPoints}`);
-    const additionalSkills: skillType[] = checkSkillList(
-      additionalSelectableSkills(initialSkills)
+    const additionalSkills: skillType[] = skills.checkSkillList(
+      skills.additionalSelectableSkills(initialSkills)
     );
     const selectableSkills: skillType[] = TRAINED_SKILLS.concat(
       additionalSkills

@@ -4,7 +4,7 @@ import { Config } from "./config";
 
 chai.should();
 
-describe("Configuration settings", () => {
+describe("-- Configuration settings", () => {
   describe("Token", () => {
     it("should be string", () => {
       const config = new Config();
