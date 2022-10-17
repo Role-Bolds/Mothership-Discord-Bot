@@ -7,7 +7,7 @@
     "lib": "src/lib"
   },
   "dependencies": {
-    "@types/node": "^14.11.8",
+    "@types/node": "^18.11.0",
     "discord.js": "^12.3.1"
   },
   "devDependencies": {
